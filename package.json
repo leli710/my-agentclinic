@@ -5,9 +5,19 @@
   "type": "module",
   "scripts": {
     "build": "tsc -p tsconfig.json",
+    "test": "npm run build && vitest run src/test",
     "start": "node dist/index.js"
   },
   "devDependencies": {
-    "typescript": "^5.9.3"
+    "@types/better-sqlite3": "7.6.13",
+    "@types/node": "25.9.9",
+    "typescript": "5.9.3",
+    "vitest": "4.1.2"
+  },
+  "dependencies": {
+    "@hono/node-server": "2.1.8",
+    "@picocss/pico": "2.1.1",
+    "better-sqlite3": "13.1.1",
+    "hono": "4.13.18"
   }
 }
