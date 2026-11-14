@@ -20,12 +20,12 @@
 | TypeScript | הושלמה — נבדקה בפרויקט | TypeScript ‏`5.9.3` מותקן מקומית כתלות פיתוח. |
 | VS Code | הושלמה — נבדקה | VS Code ‏`1.142.0`, הרחבת Claude Code ‏`2.1.310`. |
 | Claude Code | לא בשימוש — המשתמשת אינה מעוניינת בתשלום | CLI ‏`2.1.323` הותקן; אין רכישה, חיוב API או ניסיון התחברות נוסף. |
-| Git | חלקית — ראיות היסטוריות חסרות | Git ‏`2.41.0.windows.1`; ענף `feature/course-completion-remediation`, commit נוכחי `f5ae703`. לפני ביקורת זו `main`,‏ `feature/hello-hono` ו־`replanning` הצביעו כולם על `a2d0b89`; אין remote. |
+| Git | חלקית — ראיות היסטוריות חסרות | Git ‏`2.41.0.windows.1`; `main` כולל את merge commit `e1d5fb5`; `feature/course-completion-remediation` נשמר ב־`78b1a44`. `feature/hello-hono` ו־`replanning` עדיין מצביעים על `a2d0b89`; אין Remote. |
 | GitHub | חסומה | GitHub CLI ‏`2.100.0` מותקן, אין התחברות ואין remote מוגדר. |
 | MVP מקומי | הושלמה — נבדקה מחדש | Dashboard, ניהול סוכנים ותקלות, SQLite וממשק RTL; `npm ci` ו־13 בדיקות עברו; זרימות דפדפן נבדקו. |
 | שרת צפייה | נבדק מקומית | `http://127.0.0.1:3000`; בדיקות השרת בוצעו עם מסד זיכרון ונעצרו לאחר האימות. |
 | לוח המשימות | הושלמה | הקובץ הזה נוצר, נקרא ומתעדכן כנקודת המעקב הראשית. |
-| היסטוריית SDD | חסרה חלקית | שני commits מקוריים עד Constitution ו־commit remediation מאוחד אחד; אין בו כדי להוכיח היסטוריית feature branches/מיזוגים נפרדת ל־Hello Hono,‏ Agents או MVP. |
+| היסטוריית SDD | חסרה חלקית | שני commits מקוריים עד Constitution; נוספו commits remediation ו־merge commit אמיתי ל־`main`. הם אינם מוכיחים feature commits/מיזוגים נפרדים היסטוריים ל־Hello Hono,‏ Replanning,‏ Agents או MVP. |
 | מסמכי Feature | הושלמו לאימות | לכל חתך חובה עד MVP יש דרישות, תוכנית ואימות; קובצי 14.11.2026 סומנו במפורש כרטרוספקטיביים. |
 | סקירת קוד עצמאית | הושלמה | סוכן Code Review בדק את השינויים; לא נמצאו בעיות משמעותיות. |
 
@@ -113,7 +113,7 @@
 
 ## שלב 7 — מפרט ומימוש: Agents and Ailments
 
-- [ ] לבדוק אם נדרש למזג שינויים ל־`main`; אין לבצע Merge ללא אישורך. **סטטוס: ממתינה — השינויים המקומיים לא מוזגו.**
+- [x] לבדוק אם נדרש למזג שינויים ל־`main` ולקבל אישור. **סטטוס: המשתמשת אישרה ומיזוג remediation המאומת בוצע ב־`e1d5fb5`; מיזוג היסטורי של שלב Agents נפרד אינו מוכח.**
 - [x] לבצע ראיון דרישות ולנקות הקשר קודם באמצעות `/clear` אם אפשרי. **סטטוס: היקף הוגדר לפי החלטת המוצר שאושרה; `/clear` לא זמין משום ש־Claude Code לא משמש.**
 - [ ] ליצור ענף `feature/agents-and-ailments` לאחר בדיקת מצב המאגר. **סטטוס: לא ניתן לשחזר בדיעבד; הענף אינו קיים ב־refs והיישום אינו committed בהיסטוריה המקורית.**
 - [x] ליצור Feature Spec מלא עם תוכנית עבודה, פירוק למשימות ותנאי הצלחה. **סטטוס: המפרט המפורט ב־`specs/features/agents-and-ailments.md`; requirements/plan/validation מובנים נורמלו בדיעבד ב־`specs/2026-11-14-agents-and-ailments/`.**
@@ -123,8 +123,8 @@
 - [x] להריץ את האפליקציה ולבדוק את הפיצ'ר בפועל. **סטטוס: הושלמה — Dashboard, סוכנים ותקלות נפתחו בדפדפן; HTTP וחיבורי CSS מקומיים אומתו.**
 - [x] להריץ בדיקות ולבצע Code Review באמצעות כלי זמין אם נדרש. **סטטוס: הושלמה — 11 בדיקות וסקירת קוד תועדו היסטורית; באימות 14.11 עברו 13 בדיקות וסוכן Code Review עצמאי לא מצא בעיות משמעותיות.**
 - [x] לתקן ממצאים רלוונטיים ולעדכן CHANGELOG אם Skill מתאים נוצר. **סטטוס: הושלמה — נוצר `CHANGELOG.md` תחת `Unreleased` באמצעות כללי ה־Skill; לא נקבעו גרסה או תאריך שחרור.**
-- [x] לעדכן את לוח זה ולקבל אישור לפני Commit. **סטטוס: המשתמשת אישרה את Commit `f5ae703` לאחר אימות; Merge לא בוצע.**
-- [ ] למזג את הפיצ'ר ל־`main` לאחר אישור. **סטטוס: לא בוצע; נדרש אישור נפרד ואין Remote.**
+- [x] לעדכן את לוח זה ולקבל אישור לפני Commit. **סטטוס: המשתמשת אישרה את `f5ae703` לאחר אימות ואת מיזוג remediation המאומת ל־`main` ב־`e1d5fb5`; מיזוג היסטורי של ענף Agents נפרד אינו מוכח.**
+- [x] לשלב את המימוש המאומת ב־`main` לאחר אישור. **סטטוס: בוצע מיזוג מקומי אמיתי של `feature/course-completion-remediation` ב־`e1d5fb5`; הוא אינו משחזר מיזוג היסטורי של `feature/agents-and-ailments`.**
 
 ## שלב 8 — השלמת MVP
 
@@ -138,8 +138,8 @@
 - [x] לתקן פערים, להריץ בדיקות מחדש ולעדכן Roadmap ולוח זה. **סטטוס: הושלמה בביקורת 14.11 — `npm ci` ו־`npm test` עברו, 13 בדיקות; תיעוד עודכן.**
 - [x] לבנות עמוד התקדמות קורס נפרד באפליקציה, על בסיס `TASKS.md` כמקור אמת יחיד. **סטטוס: הושלמה — `/course` מציג סיכום ומשימות לפי שלב, כולל חסימות ואישורים.**
 - [x] לאמת את עמוד הקורס והממשק ברוחבים צרים ורחבים. **סטטוס: הושלמה — 320px,‏ 375px ו־1280px בארבעה מסכים; ספירת הקורס כוללת רק שלבים 1–8 עד MVP, ללא גלילה אופקית או שגיאות Console.**
-- [x] לקבל אישור לפני Commit. **סטטוס: התקבל אישור ל־`f5ae703`; Merge לא בוצע.**
-- [ ] לקבל אישור ולמזג ל־`main` אם נדרש. **סטטוס: לא בוצע; אין Remote והיסטוריית feature merge אינה מוכחת.**
+- [x] לקבל אישור לפני Commit. **סטטוס: התקבל אישור ל־`f5ae703` ולמיזוג remediation הנוכחי ל־`main`.**
+- [x] לשלב את המימוש המאומת ב־`main` אם נדרש. **סטטוס: בוצע מיזוג מקומי אמיתי ב־`e1d5fb5`; אין בכך הוכחה לענף/מיזוג MVP היסטוריים נפרדים.**
 
 ## שלב 9 — Skill ליצירת Feature Spec
 
@@ -238,9 +238,10 @@
 | 14.11.2026 | API ו־UI | `/api/hello`, מסכי `/`,‏ `/agents`,‏ `/ailments`,‏ `/course` | עבר: חוזה Hello Hono אומת; המסכים נבדקו ברוחבי 320px,‏ 375px ו־1280px; ללא גלילה אופקית או שגיאות Console; יצירת Agent ו־Ailment נבדקה במסד זיכרון. |
 | 14.11.2026 | גבול MVP | Dashboard `/course` | עבר: הוצגו שלבים 1–8 בלבד; שלבים 9 ואילך אינם נכנסים לחישוב החובה. |
 | 14.11.2026 | תלויות | `npm ls --depth=0`,‏ `npm prune --dry-run` | `npm ls` מציג שני חבילות WASI אופציונליות כ־extraneous; `npm prune --dry-run` מדווח up to date; אין כשל התקנה/Build/בדיקות. |
-| 14.11.2026 | Git | `git status`,‏ `git branch`,‏ `git remote -v`,‏ `git diff --check` | צילום מצב לפני Commit: הענף `feature/course-completion-remediation`; אין Remote; אין שגיאות whitespace; השינויים היו לא committed; לא בוצעו Push או Merge. |
+| 14.11.2026 | Git | `git status`,‏ `git branch`,‏ `git remote -v`,‏ `git diff --check` | לאחר האינטגרציה: `main` ב־`e1d5fb5`, ענף remediation נשמר ב־`78b1a44`; אין Remote; worktree נקי; לא בוצע Push. |
 | 14.11.2026 | ניקוי אימות | שרת בדיקה וקובץ session SQLite | שרת בדיקה נעצר; קובץ `agent-clinic-verification.sqlite` הזמני הוסר. מסד `data/agent-clinic.sqlite` לא שונה. |
-| 14.11.2026 | Commit remediation | `f5ae703` — `Complete Agent Clinic MVP course validation` | Commit מקומי מאוחד נוצר באישור המשתמשת לאחר Build, 13 בדיקות, Code Review ו־`git diff --check`; אינו משחזר היסטוריית feature commits/merges. ה־worktree נקי; אין Remote, Push או Merge. |
+| 14.11.2026 | Commit remediation | `f5ae703` — `Complete Agent Clinic MVP course validation`; `78b1a44` — עדכון מצב Git | Commits מקומיים נוצרו באישור המשתמשת לאחר Build, 13 בדיקות, Code Review ו־`git diff --check`; אינם משחזרים היסטוריית feature commits/merges. |
+| 14.11.2026 | מיזוג remediation | `e1d5fb5` — `Merge verified course remediation` | לאחר אישור המשתמשת, הענף המאומת מוזג ל־`main` ב־merge commit אמיתי; `npm test` עבר אחרי המיזוג: Build ו־13 בדיקות. אין Push, והיסטוריית feature merges המקורית נותרה חסרה. |
 
 ## החלטות, שאלות והמתנות
 
@@ -251,7 +252,7 @@
 - [x] **חלופת עבודה:** להמשיך במימוש, בדיקות וסקירות באמצעות הכלים הזמינים; לציין במפורש ש־Claude Code לא שימש במקום שבו דרישת הקורס מציינת אותו.
 - [x] **Hello Hono:** המפרט נכתב, הקוד מומש ונבדק; נכלל ב־Commit remediation `f5ae703` לאחר אישור. לא נעשה שימוש ב־Claude Code, ואין Commit פיצ'ר היסטורי נפרד.
 - [x] **Constitution:** מסמכי היסוד נכתבו ונבדקו; Commit מקומי בוצע לאחר אישור המשתמשת.
-- [x] **Agent Clinic MVP:** מומש ונבדק היסטורית בענף `replanning`; תיקוני קורס/אימות נכללו ב־`f5ae703` על `feature/course-completion-remediation`. אין Commit/merge היסטורי נפרד ל־MVP, ואין Merge נוכחי.
+- [x] **Agent Clinic MVP:** מומש ונבדק היסטורית; תיקוני קורס/אימות נכללו ב־`f5ae703` וב־`78b1a44`, ונמזגו ל־`main` ב־`e1d5fb5`. אין Commit/merge היסטורי נפרד ל־MVP.
 - [x] **לוח הקורס בתוך האפליקציה:** `/course` מציג את נתוני `TASKS.md` ואינו משנה את הקובץ.
 - [x] **Context7:** CLI ו־Skill מקומי הותקנו ונבדקו בלי MCP; השאילתה שנבדקה הייתה על תיעוד ציבורי בלבד.
 - [ ] **לבירור:** מהו פרויקט ה־Legacy שישמש לשלב 13.
